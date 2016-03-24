@@ -1,0 +1,19 @@
+<aside id="sidebar">
+  <nav>
+    <ul>  
+      <li class="upcoming-events">
+        <%= link_to "All Villas", villas_path, class: 'button' %>
+      </li>
+      <li class="upcoming-events">
+        <%= link_to "All Collections", collections_path, class: 'button' %>
+      </li>
+      <li class="upcoming-events">
+        <%= link_to "All Areas", areas_path, class: 'button' %>
+      </li>
+      <li class="create-event">
+        <%= link_to 'Add New Villa', new_villa_path, class: 'button' %>
+      </li>
+    </ul>
+  </nav>
+  <%= content_for(:side) %>
+</aside>

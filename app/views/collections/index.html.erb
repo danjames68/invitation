@@ -1,0 +1,12 @@
+<h1><%= pluralize @collections.size, 'Collection' %></h1>
+
+<article class="article#villa">
+	<ul>
+		<% @collections.each do |c| %>
+		<li><%= link_to c.name, c  %>  ( <%= pluralize c.selected_villas.size, 'Villa' %> )</li>
+		<% end %>
+	</ul>
+</article>
+<footer>
+<%= link_to 'Add a New Collection', new_collection_path %>	
+</footer>

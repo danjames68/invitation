@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  reference: 1
+  address: MyString
+  strapline: MyText
+  description: MyText
+  image_file: MyString
+  sleeps: 1
+
+two:
+  name: MyString
+  reference: 1
+  address: MyString
+  strapline: MyText
+  description: MyText
+  image_file: MyString
+  sleeps: 1

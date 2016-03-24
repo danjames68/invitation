@@ -1,0 +1,12 @@
+<h1><%= @area.name %></h1>
+
+<article>
+	<h4>All the villas in <%= @area.name %></h4>
+	<p><%= @area.description %></p>
+	<ul>
+	<% @area.villas.each do |villa| %>
+	<li><%= link_to villa.name, villa %> | <em>Sleeps: <%= villa.sleeps %></em></li>
+	<% end %>
+	</ul>
+</article>
+

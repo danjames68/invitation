@@ -1,0 +1,12 @@
+<h1>Areas</h1>
+
+<article>
+	<ul>
+		<% @areas.each do |area| %>
+		<li>
+			<h4><%= link_to area.name, area %></h4>
+			<p><%= area.description %></p>
+		</li>
+		<% end %>
+	</ul>
+</article>

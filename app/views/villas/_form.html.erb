@@ -1,0 +1,42 @@
+
+
+<%= form_for(@villa) do |f| %>
+
+<%= render "shared/errors", object: @villa %>
+<fieldset>
+	<ol>
+<li class = "required">
+	<%= f.label :name %>
+	<%= f.text_field :name, autofocus: true %>
+</li>
+<li class = "required">
+	<%= f.label :reference %>
+	<%= f.number_field :reference %>
+</li>
+<li class = "required">
+	<%= f.label :sleeps %>
+	<%= f.number_field :sleeps %>
+</li>
+<li class = "required">
+	<%= f.label :address %>
+	<%= f.text_field :address %>
+</li>
+<li class = "required">
+	<%= f.label :image_file %>
+	<%= f.text_field :image_file %>
+</li>
+<li class = "required">
+	<%= f.label :strapline %>
+	<%= f.text_area( :strapline, cols: 30, rows:5 ) %>
+</li>
+<li class = "required">
+	<%= f.label :description %>
+	<%= f.text_area( :description, cols: 30, rows:5 ) %>
+</li>
+<p>Collections</p><hr />
+<li>
+	<%= f.collection_check_boxes(:collection_ids, Collection.all, :id, :name) %>
+</li>
+
+<p><%= f.submit %></p>
+<% end %>

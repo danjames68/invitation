@@ -1,0 +1,9 @@
+
+<h1><%= pluralize(@villas.size, 'Villa') %></h1>
+
+	<% @villas.each do |villa| %>
+		<h2><%= link_to villa.name, villa %> - Ref.:<%= villa.reference %></h2>
+		<p><%= image_tag(villa.image_file) %></p>
+		<p>Sleeps <%= villa.sleeps %></p>
+		<hr />
+	<% end %>

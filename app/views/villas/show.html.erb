@@ -1,0 +1,27 @@
+<% content_for(:title, villa_page_title)%>
+<article>
+
+		<h2><%= @villa.name %> - Ref.:<%= @villa.reference %></h2>
+		<p><%= image_tag(@villa.image_file) %></p>
+		<p>Sleeps <%= @villa.sleeps %></p>
+		
+		<p><%= @villa.address %></p>
+		<p><%= link_to @villa.area.name, @villa.area %>
+		<h4><%= @villa.strapline %></h4>
+		<p><%= @villa.description %></p>
+		
+		<% content_for(:side) do %>
+		<p>In <%= pluralize @collections.size, 'collection' %></p>
+		<ol>
+			<% @collections.each do |c| %>
+		
+			<li><%= link_to c.name, c %></li>
+			
+			<% end %>
+	    </ol>
+		<% end %>
+		
+	
+</article>
+
+<%= link_to "Back to List of Villas", villas_url  %> | <%= link_to "Edit", edit_villa_path(@villa) %> | <%= link_to "Delete", villa_path(@villa), method: :delete, data: { confirm: 'Are you sure?'}  %> | 
