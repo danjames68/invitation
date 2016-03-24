@@ -1,0 +1,12 @@
+<h1><%= pluralize @features.size, 'Feature' %></h1>
+
+<article class="article#villa">
+	<ul>
+		<% @features.each do |f| %>
+		<li><%= link_to f.name, f  %>  ( <%= pluralize f.villas_with_feature.size, 'Villa' %> )</li>
+		<% end %>
+	</ul>
+</article>
+<footer>
+<%= link_to 'Add a New Feature', new_feature_path %>	
+</footer>

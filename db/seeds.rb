@@ -97,17 +97,49 @@ Area.create!([
     {
       name: "Central Tuscany",
       description: "Where it all started",
-      image_file: "brogino.jpg"
+      image_file: "brogino.jpg",
+      region: "Tuscany",
+      country: "Italy"
     },
     {
       name: "Chianti",
       description: "The wine country",
-      image_file: "poggio-landi.jpg"
+      image_file: "poggio-landi.jpg",
+      region: "Tuscany",
+      country: "Italy"
     },
     {
       name: "Siena",
       description: "Pre Renaissance delights, Giotto and his mates.",
-      image_file: "siena.jpg"
-    },
-      
+      image_file: "siena.jpg",
+      region: "Tuscany",
+      country: "Italy"
+    },   
   ])
+  
+Feature.create!([
+  {
+    name: "Tennis court"
+  },
+  {
+    name: "Swimming pool"
+  },
+  {
+    name: "Barbecue"
+  },
+  {
+    name: "Coffee Maker"
+  },
+  {
+    name: "Air Conditioning"
+  },
+  {
+    name: "Central Heating"
+  },
+  {
+    name: "Maid service"
+  },
+  {
+    name: "Jacuzzi"
+  },
+])

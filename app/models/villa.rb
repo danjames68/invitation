@@ -10,5 +10,10 @@ class Villa < ActiveRecord::Base
   
   has_many :collections, through: :types
   
+  has_many :featureds, dependent: :destroy
+  
+  has_many :features, through: :featureds
+  
   belongs_to :area
+  
 end

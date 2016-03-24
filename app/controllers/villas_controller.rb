@@ -7,6 +7,7 @@ class VillasController < ApplicationController
   def show
     @villa = Villa.find(params[:id])
     @collections = @villa.collections
+    @features = @villa.features
   end
   
   def edit
@@ -44,5 +45,5 @@ end
 private
 
 def villa_params
-  params.require(:villa).permit(:name, :address, :reference, :strapline, :description, :sleeps, :image_file, :area_id, collection_ids: [])
+  params.require(:villa).permit(:name, :address, :reference, :strapline, :description, :sleeps, :image_file, :area_id, collection_ids: [], feature_ids: [])
 end

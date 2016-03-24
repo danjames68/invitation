@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   
   
 
+  resources :featureds
+
+  resources :features
+
   resources :areas
 
   resources :collections

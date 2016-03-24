@@ -33,6 +33,10 @@
 	<%= f.label :description %>
 	<%= f.text_area( :description, cols: 30, rows:5 ) %>
 </li>
+<p>Features</p><hr />
+<li>
+	<%= f.collection_check_boxes(:feature_ids, Feature.all, :id, :name) %>
+</li>
 <p>Collections</p><hr />
 <li>
 	<%= f.collection_check_boxes(:collection_ids, Collection.all, :id, :name) %>

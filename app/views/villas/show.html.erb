@@ -11,6 +11,17 @@
 		<p><%= @villa.description %></p>
 		
 		<% content_for(:side) do %>
+		
+		<p>Features:</p>
+		<ul>
+			<% @features.each do |f| %>
+		
+			<li><%= f.name %></li>
+			
+			<% end %>
+	    </ul>
+		
+		
 		<p>In <%= pluralize @collections.size, 'collection' %></p>
 		<ol>
 			<% @collections.each do |c| %>
