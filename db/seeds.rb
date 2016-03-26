@@ -14,7 +14,9 @@ Villa.create!([
     description: "Just outside the village of Radicondoli, facing across rolling, open countryside, stands.",
     image_file: "dimora.jpg",
     sleeps: 8,
-    area_id: 1
+    area_id: 1,
+    latitude: 43.259334,
+    longitude: 11.045852
   },
   { 
     name: "Olivo",
@@ -24,7 +26,9 @@ Villa.create!([
     description: "In an inspiring panoramic position, facing across endless unspoilt countryside dotted with vineyards, forests and dramatic hills, Bellavista is a restored stone farmhouse below the Tuscan hill village of Radicondoli, 500 metres down a track from a country road. The present owners have restored olive groves and renewed vineyards, producing excellent wine and olive oil. Even more care has gone into the three apartments. The swimming pool is on a terrace with never-ending views over the Tuscan countryside. The custodian lives nearby and is very conscientious and helpful.",
     image_file: "poggio-landi.jpg",
     sleeps: 4,
-    area_id: 2
+    area_id: 2,
+    latitude: 43.26481,
+    longitude: 11.036594
   },
   { 
     name: "Brogino",
@@ -34,7 +38,9 @@ Villa.create!([
     description: "Brogino is a large country house in Chianti, its already lyrical setting enhanced by the spectacular medieval Abbey - Badia di Passignano - which faces it from a mile away across vine and olive clothed hills.",
     image_file: "argentone.jpg",
     sleeps: 10,
-    area_id: 3
+    area_id: 3,
+    latitude: 43.585902,
+    longitude: 11.246137
   }
 
   ])

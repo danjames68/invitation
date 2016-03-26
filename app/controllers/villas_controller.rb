@@ -2,6 +2,16 @@ class VillasController < ApplicationController
   
   def index
     @villas = Villa.all
+    @hash = Gmaps4rails.build_markers(@villas) do |villa, marker|
+      marker.lat villa.latitude
+      marker.lng villa.longitude
+      marker.infowindow render_to_string(:partial => "/villas/infowindow", :locals => { :villa => villa})
+          marker.title "#{villa.name}"
+          marker.json({ :sleeps => villa.sleeps})
+          marker.picture({:picture => "http://mapicons.nicolasmollet.com/     wp-content/uploads/mapicons/shape-default/color-3875d7/shapeco     lor-color/shadow-1/border-dark/symbolstyle-contrast/symbolshad     owstyle-dark/gradient-iphone/information.png",
+                          :width => 32,
+                          :height => 32})
+    end
   end
   
   def show
@@ -45,5 +55,5 @@ end
 private
 
 def villa_params
-  params.require(:villa).permit(:name, :address, :reference, :strapline, :description, :sleeps, :image_file, :area_id, collection_ids: [], feature_ids: [])
+  params.require(:villa).permit(:name, :address, :reference, :strapline, :description, :sleeps, :image_file, :area_id, :latitude, :longitude, collection_ids: [], feature_ids: [])
 end

@@ -1,4 +1,4 @@
-<% content_for(:title, villa_page_title)%>
+
 <article>
 
 		<h2><%= @villa.name %> - Ref.:<%= @villa.reference %></h2>
@@ -6,7 +6,7 @@
 		<p>Sleeps <%= @villa.sleeps %></p>
 		
 		<p><%= @villa.address %></p>
-		<p><%= link_to @villa.area.name, @villa.area %>
+		
 		<h4><%= @villa.strapline %></h4>
 		<p><%= @villa.description %></p>
 		
