@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :users
+
   resources :featureds
 
   resources :features
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   
   resources :villas do
     resources :types
+    resources :wishlist
   end
 
 end

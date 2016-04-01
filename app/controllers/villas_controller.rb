@@ -50,6 +50,11 @@ class VillasController < ApplicationController
     @villa.destroy
     redirect_to @villa
   end
+  
+  def remember
+    cookies[:wishlist] = @villa.id
+    redirect_to @villa
+  end
 end
 
 private

@@ -30,7 +30,12 @@
 			
 			<% end %>
 	    </ol>
+		<% arr = cookies[:wishlist] %>
+		
+		<p><%= arr.each { |a| print a -= 10, " " } %></p>
 		<% end %>
+		
+		<p><%= link_to 'Add to Wishlist', new_villa_wishlist_path(@villa) %><p>
 		
 	
 </article>

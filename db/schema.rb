@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326135305) do
+ActiveRecord::Schema.define(version: 20160401130045) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 20160326135305) do
 
   add_index "types", ["collection_id"], name: "index_types_on_collection_id"
   add_index "types", ["villa_id"], name: "index_types_on_villa_id"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "villa_features", force: true do |t|
     t.integer  "villa_id"

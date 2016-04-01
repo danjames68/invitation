@@ -32,11 +32,19 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'geocoder'
+group :test, :development do
+  gem "rspec-rails", "3.4.2"
+end
+
+group :test do
+  gem "capybara", "2.6.2"
+end
+
+# gem 'geocoder'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'

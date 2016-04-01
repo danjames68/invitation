@@ -149,3 +149,13 @@ Feature.create!([
     name: "Jacuzzi"
   },
 ])
+User.create!([
+  {
+    name: "Example User",
+    email: "user@example.com",
+    password: "secret",
+    password_confirmation: "secret"
+  }
+])
+
+
