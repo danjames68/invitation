@@ -37,7 +37,10 @@ describe "A user" do
   end
 
   it "requires a unique, case insensitive email address" do
-    user1 = User.create!(user_attributes)
+    user1 = User.create!( name: "Example User",
+                          email: "user@example.com",
+                          password: "secret",
+                          password_confirmation: "secret")
 
     user2 = User.new(email: user1.email.upcase)
     user2.valid?
@@ -45,7 +48,10 @@ describe "A user" do
   end
 
   it "is valid with example attributes" do
-    user = User.new(user_attributes)
+    user = User.new(  name: "Example User",
+                      email: "user@example.com",
+                      password: "secret",
+                      password_confirmation: "secret")
 
     expect(user.valid?).to eq(true)
   end
@@ -75,13 +81,19 @@ describe "A user" do
   end
 
   it "requires a password and matching password confirmation when creating" do
-    user = User.create!(user_attributes(password: "secret", password_confirmation: "secret"))
+    user = User.create!(  name: "Example User",
+                          email: "user@example.com",
+                          password: "secret",
+                          password_confirmation: "secret")
 
     expect(user.valid?).to eq(true)
   end
 
   it "does not require a password when updating" do
-    user = User.create!(user_attributes)
+    user = User.create!( name: "Example User",
+                          email: "user@example.com",
+                          password: "secret",
+                          password_confirmation: "secret")
 
     user.password = ""
 

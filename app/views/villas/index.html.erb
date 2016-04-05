@@ -4,14 +4,21 @@
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 
 <h1><%= pluralize(@villas.size, 'Villa') %></h1>
-	
+<ul id="events">	
 	<% @villas.each do |villa| %>
+	<li>
+		<article class="event">
+			<header>
 		<h2><%= link_to villa.name, villa %> - Ref.:<%= villa.reference %></h2>
+		</header>
 		<p><%= image_tag(villa.image_file) %></p>
-		<p>Sleeps <%= villa.sleeps %></p>
-		<hr />
+		<h3>Sleeps <%= villa.sleeps %></h3>
+		<p><%= truncate(villa.description, length: 120, separator: " "  )  %>
+			<%= link_to 'read more...', villa %></p>
+		</article>
+	</li>
 	<% end %>
-	
+	</ul>
 	<div style='width: 800px;'>
 		<div id="map" style='width: 800px; height: 400px;'>
 	

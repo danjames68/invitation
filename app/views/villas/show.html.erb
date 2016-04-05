@@ -1,5 +1,5 @@
 
-<article>
+<article id="event" class="event">
 
 		<h2><%= @villa.name %> - Ref.:<%= @villa.reference %></h2>
 		<p><%= image_tag(@villa.image_file) %></p>
@@ -30,14 +30,9 @@
 			
 			<% end %>
 	    </ol>
-		<% arr = cookies[:wishlist] %>
 		
-		<p><%= arr.each { |a| print a -= 10, " " } %></p>
 		<% end %>
-		
-		<p><%= link_to 'Add to Wishlist', new_villa_wishlist_path(@villa) %><p>
-		
-	
+
 </article>
 
 <%= link_to "Back to List of Villas", villas_url  %> | <%= link_to "Edit", edit_villa_path(@villa) %> | <%= link_to "Delete", villa_path(@villa), method: :delete, data: { confirm: 'Are you sure?'}  %> | 

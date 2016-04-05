@@ -1,0 +1,16 @@
+<h1><%= @user.name %></h1>
+
+<p>Member for <%= time_ago_in_words(@user.created_at) %></p>
+
+<p><%= mail_to @user.email, @user.email %></p>
+
+<footer>
+	<nav>
+		<p><%= link_to 'Edit Account', edit_user_path(@user), class: 'button' %></p>
+
+		<p><%= link_to 'Delete Account', @user,
+				 		method: :delete,
+						data: { confirm: 'Are you sure you want to permanently delete this account?'},
+						class: 'button' %></p>
+	</nav>
+</footer>

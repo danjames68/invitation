@@ -1,0 +1,9 @@
+<h1><%= pluralize(@users.count, 'User') %></h1>
+
+<article id='users'>
+	<ul id='users'>
+	<% @users.each do |user| %>
+	<li><%= link_to user.name, user %></li>
+	<% end %>
+</ul>
+</article>
