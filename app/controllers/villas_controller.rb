@@ -22,6 +22,7 @@ class VillasController < ApplicationController
   
   def edit
     @villa = Villa.find(params[:id])
+    
   end
   
   def update
@@ -35,6 +36,7 @@ class VillasController < ApplicationController
   
   def new
     @villa = Villa.new
+    @owners = Owner.all
   end
   def create
     @villa = Villa.new(villa_params)
@@ -60,5 +62,5 @@ end
 private
 
 def villa_params
-  params.require(:villa).permit(:name, :address, :reference, :strapline, :description, :sleeps, :image_file, :area_id, :latitude, :longitude, collection_ids: [], feature_ids: [])
+  params.require(:villa).permit(:owner_id, :name, :address, :reference, :strapline, :description, :sleeps, :image_file, :area_id, :latitude, :longitude, collection_ids: [], feature_ids: [])
 end

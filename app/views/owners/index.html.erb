@@ -1,0 +1,14 @@
+<header>
+	
+	<h1><%= pluralize(@owners.size, 'Owner') %></h1>
+</header>
+<article>
+	<ul>
+		<% @owners.each do |owner| %>
+		<li>
+		 <p> <%= link_to full_name(owner), owner %> - preferred language: <%= owner.language %></p>
+		 
+		</li>	
+		<% end %>
+	</ul>
+</article>

@@ -17,6 +17,10 @@ class Villa < ActiveRecord::Base
   
   has_many :features, through: :featureds
   
+  has_many :contracts
+  
   belongs_to :area
+  
+  belongs_to :owner
   
 end

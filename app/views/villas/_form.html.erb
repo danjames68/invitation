@@ -5,50 +5,54 @@
 <%= render "shared/errors", object: @villa %>
 <fieldset>
 	<ol>
-<li class = "required">
-	<%= f.label :name %>
-	<%= f.text_field :name, autofocus: true %>
-</li>
-<li class = "required">
-	<%= f.label :reference %>
-	<%= f.number_field :reference %>
-</li>
-<li class = "required">
-	<%= f.label :sleeps %>
-	<%= f.number_field :sleeps %>
-</li>
-<li class = "required">
-	<%= f.label :address %>
-	<%= f.text_field :address %>
-</li>
-<li class = "required">
-	<%= f.label :latitude %>
-	<%= f.text_field :latitude %>
-</li>
-<li class = "required">
-	<%= f.label :longitude %>
-	<%= f.text_field :longitude %>
-</li>
-<li class = "required">
-	<%= f.label :image_file %>
-	<%= f.text_field :image_file %>
-</li>
-<li class = "required">
-	<%= f.label :strapline %>
-	<%= f.text_area( :strapline, cols: 30, rows:5 ) %>
-</li>
-<li class = "required">
-	<%= f.label :description %>
-	<%= f.text_area( :description, cols: 30, rows:5 ) %>
-</li>
-<p>Features</p><hr />
-<li>
-	<%= f.collection_check_boxes(:feature_ids, Feature.all, :id, :name) %>
-</li>
-<p>Collections</p><hr />
-<li>
-	<%= f.collection_check_boxes(:collection_ids, Collection.all, :id, :name) %>
-</li>
+	<li>
+		<p>Select an owner</p>
+		<%= collection_select(:villa, :owner_id, Owner.order(:surname), :id, :surname, prompt: true ) %>
+	</li>
+	<li class = "required">
+		<%= f.label :name %>
+		<%= f.text_field :name, autofocus: true %>
+	</li>
+	<li class = "required">
+		<%= f.label :reference %>
+		<%= f.number_field :reference %>
+	</li>
+	<li class = "required">
+		<%= f.label :sleeps %>
+		<%= f.number_field :sleeps %>
+	</li>
+	<li class = "required">
+		<%= f.label :address %>
+		<%= f.text_field :address %>
+	</li>
+	<li class = "required">
+		<%= f.label :latitude %>
+		<%= f.text_field :latitude %>
+	</li>
+	<li class = "required">
+		<%= f.label :longitude %>
+		<%= f.text_field :longitude %>
+	</li>
+	<li class = "required">
+		<%= f.label :image_file %>
+		<%= f.text_field :image_file %>
+	</li>
+	<li class = "required">
+		<%= f.label :strapline %>
+		<%= f.text_area( :strapline, cols: 30, rows:5 ) %>
+	</li>
+	<li class = "required">
+		<%= f.label :description %>
+		<%= f.text_area( :description, cols: 30, rows:5 ) %>
+	</li>
+	<p>Features</p><hr />
+	<li>
+		<%= f.collection_check_boxes(:feature_ids, Feature.all, :id, :name) %>
+	</li>
+	<p>Collections</p><hr />
+	<li>
+		<%= f.collection_check_boxes(:collection_ids, Collection.all, :id, :name) %>
+	</li>
 
-<p><%= f.submit %></p>
+	<p><%= f.submit %></p>
 <% end %>

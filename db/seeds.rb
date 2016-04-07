@@ -5,6 +5,55 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Owner.create!([
+  {
+    title: "Sig.",
+    name: "Ottavio",
+    surname: "Muzi-Falconi",
+    company: "Azienda Agricola Pian della Chiesa",
+    address: "Pian della Chiesa, Zanego",
+    postcode: "80400",
+    country: "Italy",
+    phone: "05846950030",
+    mobile: "3396673847",
+    email: "ottavio@example.com",
+    language: "english",
+    notes: "doobeboododod ,.d.d,dddod",
+    private_notes: "lovely wine."
+  },
+  {
+    title: "Ms.",
+    name: "AnnMarie",
+    surname: "Hobbs",
+    company: "Valdambra",
+    address: "Pieve a Presciano",
+    postcode: "80400",
+    country: "Italy",
+    phone: "05846950030",
+    mobile: "3396673847",
+    email: "annmarie@example.com",
+    language: "italian",
+    notes: "doobeboododod ,.d.d,dddod",
+    private_notes: "lovely wine."
+  },
+  {
+    title: "Mme.",
+    name: "Rosie",
+    surname: "Jackson",
+    company: "Cabrieres d'Avignon",
+    address: "Cab d'Avignon, Avignon",
+    postcode: "45110",
+    country: "France",
+    phone: "0596993302",
+    mobile: "7748583939",
+    email: "ottavio@example.com",
+    language: "french",
+    notes: "what can i say - payment terms on the nail",
+    private_notes: "lovely wine."
+  }, 
+])
+
+
 Villa.create!([
   { 
     name: "Ragnana",
@@ -16,7 +65,8 @@ Villa.create!([
     sleeps: 8,
     area_id: 1,
     latitude: 43.259334,
-    longitude: 11.045852
+    longitude: 11.045852,
+    owner_id: 1
   },
   { 
     name: "Olivo",
@@ -28,7 +78,8 @@ Villa.create!([
     sleeps: 4,
     area_id: 2,
     latitude: 43.26481,
-    longitude: 11.036594
+    longitude: 11.036594,
+    owner_id: 2
   },
   { 
     name: "Brogino",
@@ -40,7 +91,8 @@ Villa.create!([
     sleeps: 10,
     area_id: 3,
     latitude: 43.585902,
-    longitude: 11.246137
+    longitude: 11.246137,
+    owner_id: 3
   }
 
   ])
@@ -153,6 +205,24 @@ User.create!([
   {
     name: "Example User",
     email: "user@example.com",
+    password: "secret",
+    password_confirmation: "secret"
+  },
+  {
+    name: "Bill the client",
+    email: "bill@example.com",
+    password: "secret",
+    password_confirmation: "secret"
+  },
+  {
+    name: "Joan longstanding client",
+    email: "joan@example.com",
+    password: "secret",
+    password_confirmation: "secret"
+  },
+  {
+    name: "James Corden",
+    email: "james@example.com",
     password: "secret",
     password_confirmation: "secret"
   }

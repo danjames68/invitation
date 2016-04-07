@@ -1,0 +1,30 @@
+<header>
+	<h1><%= mail_to @owner.email, full_name(@owner) %></h1>
+</header>
+<article>
+	<h4>Tel.: <%= number_to_phone(@owner.phone) %> - Mob.: <%= number_to_phone(@owner.mobile) %></h4>
+	
+	<p><%= link_to 'Edit this Owner', edit_owner_path(@owner) %></p>
+	<p><%= link_to 'Add a New Villa for this Owner', new_villa_path(owner_id: @owner.id) %></p>
+	<h4>Notes</h4>
+	<p><%= @owner.notes %><p>
+	<h4>Private Notes</h4>
+	<p><%= @owner.private_notes %><p>
+	<ul>
+		<% @villas.each do |villa| %>	
+		<li>
+			<h2><%= link_to villa.name, villa %> - Ref.:<%= villa.reference %></h2>
+			<p><%= image_tag(villa.image_file) %></p>
+			<p>Sleeps <%= villa.sleeps %></p>
+			<p><%= link_to 'View villa', villa %> | <%= link_to 'Edit Villa', edit_villa_path(villa) %>
+		</li><hr />
+		<% end %>
+	</ul>
+		
+	<% content_for(:side) do %>
+		<p><strong>Address</strong></p>
+		<p><%= @owner.address %><br />
+		<%= @owner.postcode %><br />
+		<%= @owner.country %></p>
+	<% end %>
+</article>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401130045) do
+ActiveRecord::Schema.define(version: 20160406114941) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -31,6 +31,24 @@ ActiveRecord::Schema.define(version: 20160401130045) do
     t.datetime "updated_at"
   end
 
+  create_table "contracts", force: true do |t|
+    t.date     "year"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.decimal  "commission"
+    t.string   "currency"
+    t.text     "contract"
+    t.text     "payment_terms"
+    t.string   "week_start"
+    t.integer  "owner_id"
+    t.integer  "villa_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contracts", ["owner_id"], name: "index_contracts_on_owner_id"
+  add_index "contracts", ["villa_id"], name: "index_contracts_on_villa_id"
+
   create_table "featureds", force: true do |t|
     t.integer  "villa_id"
     t.integer  "feature_id"
@@ -43,6 +61,24 @@ ActiveRecord::Schema.define(version: 20160401130045) do
 
   create_table "features", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "owners", force: true do |t|
+    t.string   "title"
+    t.string   "name"
+    t.string   "surname"
+    t.string   "company"
+    t.text     "address"
+    t.string   "postcode"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "language"
+    t.text     "notes"
+    t.text     "private_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,8 +124,10 @@ ActiveRecord::Schema.define(version: 20160401130045) do
     t.integer  "area_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "owner_id"
   end
 
   add_index "villas", ["area_id"], name: "index_villas_on_area_id"
+  add_index "villas", ["owner_id"], name: "index_villas_on_owner_id"
 
 end

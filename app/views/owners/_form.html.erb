@@ -1,0 +1,60 @@
+<%= form_for(@owner) do |f| %>
+
+<%= render "shared/errors", object: @owner %>
+<fieldset>
+	<ol>
+<li class = "required">
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</li>
+<li class = "required">
+	<%= f.label :name %>
+	<%= f.text_field :name, autofocus: true %>
+</li>
+<li class = "required">
+	<%= f.label :surname %>
+	<%= f.text_field :surname %>
+</li>
+<li class = "required">
+	<%= f.label :company %>
+	<%= f.text_field :company %>
+</li>
+<li class = "required">
+	<%= f.label :language %>
+	<%= f.text_field :language %>
+</li>
+<li class = "required">
+	<%= f.label :address %>
+	<%= f.text_field :address %>
+</li>
+<li class = "required">
+	<%= f.label :postcode %>
+	<%= f.text_field :postcode %>
+</li>
+<li class = "required">
+	<%= f.label :country %>
+	<%= f.text_field :country %>
+</li>
+<li class = "required">
+	<%= f.label :phone %>
+	<%= f.text_field :phone %>
+</li>
+<li class = "required">
+	<%= f.label :mobile %>
+	<%= f.text_field :mobile %>
+</li>
+<li class = "required">
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+</li>
+<li class = "required">
+	<%= f.label :notes %>
+	<%= f.text_area( :notes, cols: 30, rows:5 ) %>
+</li>
+<li class = "required">
+	<%= f.label :private_notes %>
+	<%= f.text_area( :private_notes, cols: 30, rows:5 ) %>
+</li>
+
+<p><%= f.submit %></p>
+<% end %>

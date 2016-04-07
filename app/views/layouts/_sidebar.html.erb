@@ -2,13 +2,22 @@
   <nav>
     <ul>  
       <li class="upcoming-events">
-        <%= link_to "All Villas", villas_path, class: 'button' %>
+        <%= link_to "Villas", villas_path, class: 'button' %>
       </li>
       <li class="upcoming-events">
-        <%= link_to "All Collections", collections_path, class: 'button' %>
+        <%= link_to "Collections", collections_path, class: 'button' %>
       </li>
       <li class="upcoming-events">
-        <%= link_to "All Areas", areas_path, class: 'button' %>
+        <%= link_to "Areas", areas_path, class: 'button' %>
+      </li>
+      <li class="upcoming-events">
+        <%= link_to "Owners", owners_path, class: 'button' %>
+      </li>
+      <li class="upcoming-events">
+        <%= link_to "Users", users_path, class: 'button' %>
+      </li>
+      <li class="create-event">
+        <%= link_to 'Add an Owner', new_owner_path, class: 'button' %>
       </li>
       <li class="create-event">
         <%= link_to 'Add New Villa', new_villa_path, class: 'button' %>

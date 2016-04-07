@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
   
   get 'signup'  => 'users#new'
-  resources :users
+  get 'signin'  => 'sessions#new'
   
-
-  resources :featureds
-
-  resources :features
-
-  resources :areas
-
-  resources :collections
+  resources :users, :featureds, :features, :areas, :collections
+  
+  resource :session
 
   root "villas#index"
+  
+  resources :owners do
+    resources :contracts
+  end
   
   resources :villas do
     resources :types
