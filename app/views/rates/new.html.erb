@@ -1,0 +1,32 @@
+<h1>New Rate for <%= @contract.year %></h1>
+
+<%= render "shared/errors", object: @rate %>
+
+<%= form_for(@rate) do |f| %>
+<fieldset>
+	<ol>
+		<li>
+			<%= f.label :start_date %>
+			<%= f.date_field :start_date %>
+		</li>
+		<li>
+			<%= f.label :end_date %>
+			<%= f.date_field :end_date %>
+		</li>
+		<li>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</li>
+		<li>
+			<%= f.label :net %>
+			<%= f.number_field :net %>
+			<p>This is in <%= @contract.currency %></p>
+		</li>
+			<%= f.hidden_field :contract_id, :value => @contract.id  %>
+		<li>
+			<%= f.submit %>
+		</li>
+	</ol>
+</fieldset>
+
+<% end %>

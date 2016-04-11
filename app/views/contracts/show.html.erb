@@ -1,0 +1,25 @@
+<header>
+	<h1><%= @contract.year %> contract for <%= link_to @villa.name, @villa %></h1>
+</header>
+<article>
+	<p>Year: <%= @contract.year %></p>
+	<p>Currency: <%= @contract.currency %></p>
+	<p>Commission: <%= number_to_percentage ( @contract.commission) %></p>
+	<p>Contract start date: <%= @contract.start_date %></p>
+	<p>Contract end date: <%= @contract.end_date %></p>
+	<p>Payment terms: <%= @contract.payment_terms %></p>
+	<p>Contract: <%= @contract.contract %></p>
+</article>
+<hr />
+<article class='event'>
+	<p><strong>Rates</strong> | <%= link_to 'Add a Rate', new_rate_path(contract_id: @contract)  %>
+	<ul>
+		<% @rates.each do |rate| %>
+		<li>
+			<p><strong><%= rate.name %></strong>
+			Starts: <%= rate.start_date %> | Ends <%= rate.end_date %> </p>
+			<h3><%= number_to_currency(rate.net, locale: :it) %> -- giving a selling price of <%= number_to_currency(rate.net/((100-@contract.commission))*100, locale: :it) %></h3>
+			<p>Delete this Rate</p>
+		<% end %>
+	</ul>
+</article>

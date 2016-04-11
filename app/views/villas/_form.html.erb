@@ -1,5 +1,3 @@
-
-
 <%= form_for(@villa) do |f| %>
 
 <%= render "shared/errors", object: @villa %>
@@ -53,6 +51,7 @@
 	<li>
 		<%= f.collection_check_boxes(:collection_ids, Collection.all, :id, :name) %>
 	</li>
-
+	</ol>
 	<p><%= f.submit %></p>
+	</fieldset>
 <% end %>

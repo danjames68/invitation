@@ -17,7 +17,7 @@ class Villa < ActiveRecord::Base
   
   has_many :features, through: :featureds
   
-  has_many :contracts
+  has_many :contracts, dependent: :destroy
   
   belongs_to :area
   

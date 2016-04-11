@@ -227,5 +227,30 @@ User.create!([
     password_confirmation: "secret"
   }
 ])
+Contract.create!([
+  {
+    year: "2015",
+    start_date: "",
+    end_date: "",
+    commission: 30,
+    currency: "EUR",
+    contract: "Exclusive",
+    payment_terms: "30 days",
+    week_start: "Saturday",
+    villa_id: 1  
+  },
+  {
+    year: "2016",
+    start_date: "",
+    end_date: "",
+    commission: 30,
+    currency: "EUR",
+    contract: "Exclusive",
+    payment_terms: "30 days",
+    week_start: "Saturday",
+    villa_id: 1  
+  },
+  
+])
 
 

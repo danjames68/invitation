@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406114941) do
+ActiveRecord::Schema.define(version: 20160410162125) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160406114941) do
   end
 
   create_table "contracts", force: true do |t|
-    t.date     "year"
+    t.string   "year"
     t.date     "start_date"
     t.date     "end_date"
     t.decimal  "commission"
@@ -40,13 +40,11 @@ ActiveRecord::Schema.define(version: 20160406114941) do
     t.text     "contract"
     t.text     "payment_terms"
     t.string   "week_start"
-    t.integer  "owner_id"
     t.integer  "villa_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "contracts", ["owner_id"], name: "index_contracts_on_owner_id"
   add_index "contracts", ["villa_id"], name: "index_contracts_on_villa_id"
 
   create_table "featureds", force: true do |t|
@@ -82,6 +80,18 @@ ActiveRecord::Schema.define(version: 20160406114941) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rates", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "name"
+    t.decimal  "net"
+    t.integer  "contract_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rates", ["contract_id"], name: "index_rates_on_contract_id"
 
   create_table "types", force: true do |t|
     t.integer  "villa_id"

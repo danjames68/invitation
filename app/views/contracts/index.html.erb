@@ -1,0 +1,15 @@
+<header>
+	<h1>Contracts for <%= link_to @villa.name, @villa %></h1>
+</header>
+
+<article>
+	<p><%= link_to 'Add a Contract', new_villa_contract_path(@villa) %>
+	<ul>
+		<% @contracts.each do |contract| %>
+		<li>
+			<h4>Contract for 
+			<%= link_to contract.year, villa_contract_path(@villa, contract)%>.  </h4><p>Created on <%= time_tag contract.created_at %></p>
+		</li>
+		<% end %>
+	</ul>
+</article>

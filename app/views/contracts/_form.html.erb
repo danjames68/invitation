@@ -1,0 +1,47 @@
+<%= form_for ([@villa, @contract]) do |f| %>
+
+<%= render "shared/errors", object: @contract %>
+
+<fieldset>
+	<ol>
+	<li class = "required">
+		<%= f.label :year %>
+		<%= f.select :year, Contract::YEARS, prompt: 'Pick One' %>
+	</li>
+	<li class = "required">
+		<%= f.label :start_date %>
+		<%= f.date_field :start_date %>
+		Earliest date bookings can start.
+	</li>
+	<li class = "required">
+		<%= f.label :end_date %>
+		<%= f.date_field :end_date %>
+		Last date bookings can be taken.
+	</li>
+	<li class = "required">
+		<%= f.label :commission %>
+		<%= f.number_field :commission %>
+		Default is 30%
+	</li>
+	<li class = "required">
+		<%= f.label :currency %>
+		<%= f.select :currency, Contract::CURRENCIES %>
+	</li>
+	<li class = "required">
+		<%= f.label :contract %>
+		<%= f.select :contract, Contract::CONTRACT_TYPES %>
+	</li>
+	<li class = "required">
+		<%= f.label :payment_terms %>
+		<%= f.select :payment_terms, Contract::PAYMENT_TERMS %>
+	</li>
+	<li class = "required">
+		<%= f.label :week_start%>
+		<%= f.select :week_start, Contract::DAYS %>
+	</li>
+		<%= f.hidden_field :villa_id, :value  => params[:villa_id] %>
+
+	<p><%= f.submit %></p>
+	</ol>
+</fieldset>
+<% end %>
