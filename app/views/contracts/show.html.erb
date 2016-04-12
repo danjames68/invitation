@@ -19,7 +19,7 @@
 			<p><strong><%= rate.name %></strong>
 			Starts: <%= rate.start_date %> | Ends <%= rate.end_date %> </p>
 			<h3><%= number_to_currency(rate.net, locale: :it) %> -- giving a selling price of <%= number_to_currency(rate.net/((100-@contract.commission))*100, locale: :it) %></h3>
-			<p>Delete this Rate</p>
+			<p><%= link_to "Delete this rate", rate_path(rate), method: :delete, data: { confirm: 'Are you sure?'}  %></p>
 		<% end %>
 	</ul>
 </article>

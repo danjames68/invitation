@@ -19,6 +19,12 @@ class RatesController < ApplicationController
     end
   end
   
+  def destroy
+    @rate = Rate.find(params[:id])
+    @rate.destroy
+    redirect_to :root
+  end
+  
   private
   
   def rate_params
