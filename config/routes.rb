@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'signup'  => 'users#new'
   get 'signin'  => 'sessions#new'
+  get 'make_contract'  => 'contracts#make_contract'
   
   resources :users, :featureds, :features, :areas, :collections, :owners, :rates, :contracts 
   

@@ -22,4 +22,6 @@
 			| <%= link_to "Delete this rate", rate_path(rate), method: :delete, data: { confirm: 'Are you sure?'}  %></p>
 		<% end %>
 	</ul>
+	<hr />
+	<h4><%= #link_to 'Generate Contract', make_contract_path(:contract_id  => @contract.id) %></h4>
 </article>

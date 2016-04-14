@@ -44,6 +44,17 @@ class ContractsController < ApplicationController
      @contract.destroy
      redirect_to contracts_path(@villa)
   end
+  
+  def make_contract
+    @contract = Contract.find(params[:contract_id])
+    #@villa = @contract.villa
+    #@owner = @villa.owner
+    #@rates = @contract.rates
+    if File.exists?('files/english_base.md')
+          file = File.open('files/english_base.md')
+          @base_contract = file.read
+    end
+  end
    
    private
    

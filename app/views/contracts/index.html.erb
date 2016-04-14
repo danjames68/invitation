@@ -8,7 +8,7 @@
 		<% @contracts.each do |contract| %>
 		<li>
 			<h4>Contract for 
-			<%= link_to contract.year, contract_path(contract)%>.  </h4><p>Created on <%= time_tag contract.created_at %></p>
+			<%= link_to contract.year, contract_path(contract)%>.  </h4><p>Created on <%= time_tag contract.created_at %> | <%= link_to 'Delete this Contract', contract_path(contract), method: :delete, data: { confirm: 'Are you sure?'}  %></p>
 		</li>
 		<% end %>
 	</ul>
