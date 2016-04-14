@@ -1,23 +1,30 @@
 class ContractsController < ApplicationController
-  before_action :set_movie
+  #before_action :set_villa
   
   def index
-    @contracts = @villa.contracts
+    @contracts = Contract.where(:villa_id  => session[:villa_id]).order("year DESC")
+    @villa = Villa.find(session[:villa_id])
   end
   
   def show
     @contract = Contract.find(params[:id])
+    @villa = @contract.villa
+    @owner = @villa.owner
     @rates = @contract.rates
   end
   
   def new
+    @villa = Villa.find(params[:villa_id])
+    session[:villa_id] = params[:villa_id]
+    @owner = @villa.owner
     @contract = @villa.contracts.new
   end
   
   def create
-    @contract = @villa.contracts.new(contract_params)
+    @villa = Villa.find(session[:villa_id])
+    @contract = Contract.new(contract_params)
     if @contract.save
-      redirect_to villa_contracts_path(@villa),
+      redirect_to contracts_path(@contract.villa_id),
       notice: "New contract generated"
     else
       render :new
@@ -35,7 +42,7 @@ class ContractsController < ApplicationController
    def destroy
      @contract = Contract.find(params[:id])
      @contract.destroy
-     redirect_to villa_contracts_path(@villa)
+     redirect_to contracts_path(@villa)
   end
    
    private
@@ -44,8 +51,7 @@ class ContractsController < ApplicationController
      params.require(:contract).permit(:year, :start_date, :end_date, :commission, :currency, :contract, :payment_terms, :week_start, :villa_id)
    end
    
-   def set_movie
-     @villa = Villa.find(params[:villa_id])
-     @owner = Owner.find(@villa.owner_id)
+   def set_villa
+
    end
 end

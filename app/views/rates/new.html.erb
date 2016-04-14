@@ -22,7 +22,8 @@
 			<%= f.number_field :net %>
 			<p>This is in <%= @contract.currency %></p>
 		</li>
-			<%= f.hidden_field :contract_id, :value => @contract.id  %>
+			<%= f.hidden_field :contract_id, :value => @contract.id %>
+			
 		<li>
 			<%= f.submit %>
 		</li>

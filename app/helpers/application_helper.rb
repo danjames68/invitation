@@ -8,4 +8,7 @@ module ApplicationHelper
     owner.title + ' ' + owner.name + ' ' + owner.surname
   end
   
+  def make_date(date)
+    date.strftime("%d %B - %Y")
+  end
 end

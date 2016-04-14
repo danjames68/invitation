@@ -1,5 +1,6 @@
 <header>
-	<h1><%= @contract.year %> contract for <%= link_to @villa.name, @villa %></h1>
+	<h1><%= @contract.year %> contract for <%= @villa.name %></h1>
+	<h4>Owner <%= full_name(@owner) %>. Preferred language: <%= @owner.language %></h4>
 </header>
 <article>
 	<p>Year: <%= @contract.year %></p>
@@ -12,14 +13,13 @@
 </article>
 <hr />
 <article class='event'>
-	<p><strong>Rates</strong> | <%= link_to 'Add a Rate', new_rate_path(contract_id: @contract)  %>
+	<p><strong>Rates</strong> | <%= link_to 'Add a Rate', new_rate_path(contract_id: @contract, villa_id: @villa)  %>
 	<ul>
 		<% @rates.each do |rate| %>
 		<li>
 			<p><strong><%= rate.name %></strong>
-			Starts: <%= rate.start_date %> | Ends <%= rate.end_date %> </p>
-			<h3><%= number_to_currency(rate.net, locale: :it) %> -- giving a selling price of <%= number_to_currency(rate.net/((100-@contract.commission))*100, locale: :it) %></h3>
-			<p><%= link_to "Delete this rate", rate_path(rate), method: :delete, data: { confirm: 'Are you sure?'}  %></p>
+			Starts: <%= make_date(rate.start_date) %> | Ends <%= make_date(rate.end_date) %> | <strong>Net Rate: <%= number_to_currency(rate.net, locale: :it) %></strong> -- giving a selling price of <%= number_to_currency(rate.net/((100-@contract.commission))*100, locale: :it) %>
+			| <%= link_to "Delete this rate", rate_path(rate), method: :delete, data: { confirm: 'Are you sure?'}  %></p>
 		<% end %>
 	</ul>
 </article>

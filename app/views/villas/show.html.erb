@@ -35,4 +35,4 @@
 
 </article>
 
-<%= link_to "Back to List of Villas", villas_url  %> | <%= link_to "Edit", edit_villa_path(@villa) %> | <%= link_to "Delete", villa_path(@villa), method: :delete, data: { confirm: 'Are you sure?'}  %> | <%= link_to "Contracts", villa_contracts_path(@villa) %> | <%= link_to 'Add a Contract', new_villa_contract_path(@villa) %>
+<%= link_to "Back to List of Villas", villas_url  %> | <%= link_to "Edit", edit_villa_path(@villa) %> | <%= link_to "Delete", villa_path(@villa), method: :delete, data: { confirm: 'Are you sure?'}  %> | <%= link_to "Contracts", contracts_path(villa_id: @villa) %> | <%= link_to 'Add a Contract', new_contract_path(@villa) %>

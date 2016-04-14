@@ -5,14 +5,11 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
   get 'signin'  => 'sessions#new'
   
-  resources :users, :featureds, :features, :areas, :collections, :owners
+  resources :users, :featureds, :features, :areas, :collections, :owners, :rates, :contracts 
   
   resource :session
-
-  resources :rates
   
   resources :villas do
-    resources :contracts 
     resources :types
     resources :wishlist
   end

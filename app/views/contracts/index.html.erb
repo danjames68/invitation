@@ -3,12 +3,12 @@
 </header>
 
 <article>
-	<p><%= link_to 'Add a Contract', new_villa_contract_path(@villa) %>
+	<p><%= link_to 'Add a Contract', new_contract_path(villa_id: @villa) %>
 	<ul>
 		<% @contracts.each do |contract| %>
 		<li>
 			<h4>Contract for 
-			<%= link_to contract.year, villa_contract_path(@villa, contract)%>.  </h4><p>Created on <%= time_tag contract.created_at %></p>
+			<%= link_to contract.year, contract_path(contract)%>.  </h4><p>Created on <%= time_tag contract.created_at %></p>
 		</li>
 		<% end %>
 	</ul>

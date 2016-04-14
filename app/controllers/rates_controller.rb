@@ -12,8 +12,9 @@ class RatesController < ApplicationController
   
   def create
     @rate = Rate.new(rate_params)
+    contract_id = @rate.contract_id
     if @rate.save
-      redirect_to :root
+      redirect_to contract_path(contract_id)
     else
       render :new
     end
@@ -21,8 +22,9 @@ class RatesController < ApplicationController
   
   def destroy
     @rate = Rate.find(params[:id])
+    contract_id = @rate.contract_id
     @rate.destroy
-    redirect_to :root
+    redirect_to contract_path(contract_id)
   end
   
   private
