@@ -2,8 +2,8 @@ class ContractsController < ApplicationController
   #before_action :set_villa
   
   def index
-    @contracts = Contract.where(:villa_id  => session[:villa_id]).order("year DESC")
-    @villa = Villa.find(session[:villa_id])
+    @contracts = Contract.where(:villa_id  => params[:villa_id]).order("year DESC")
+    @villa = Villa.find(params[:villa_id])
   end
   
   def show
@@ -47,13 +47,10 @@ class ContractsController < ApplicationController
   
   def make_contract
     @contract = Contract.find(params[:contract_id])
-    #@villa = @contract.villa
-    #@owner = @villa.owner
-    #@rates = @contract.rates
-    if File.exists?('files/english_base.md')
-          file = File.open('files/english_base.md')
-          @base_contract = file.read
-    end
+    @villa = @contract.villa
+    @owner = @villa.owner
+    @rates = @contract.rates
+    @villas = @owner.villas
   end
    
    private
