@@ -1,0 +1,24 @@
+<h1>Add a paragraph</h1>
+
+<%= form_for @base_contract do |f| %>
+
+<%= render "shared/errors", object: @base_contract %>
+
+<fieldset class='event'>
+	<ol>
+	<li class = "required">
+		<%= f.label :language %>
+		<%= f.select :language, BaseContract::LANGUAGES, prompt: 'Pick One' %>
+	</li>
+	<li class = "required">
+		<%= f.label :paragraph_number %>
+		<%= f.number_field :paragraph_number %>
+	</li>
+	<li class = "required">
+		<%= f.label :paragraph %>
+		<%= f.text_area :paragraph, :cols => "50", :rows => "10" %>
+	</li>
+	<p><%= f.submit %></p>
+	</ol>
+</fieldset>
+<% end %>

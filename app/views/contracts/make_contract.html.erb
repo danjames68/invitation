@@ -1,0 +1,11 @@
+<% case @owner.language %>
+<% when "english" %>
+<%= render 'english_contract' %>
+<% when "italian" %>
+<%= render 'italian_contract' %>
+<% when 'french' %>
+<%= render 'french_contract' %>
+<% else %>
+<%= puts "No language set" %>
+<% end %>
+

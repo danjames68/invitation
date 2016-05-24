@@ -1,13 +1,30 @@
 class Villa < ActiveRecord::Base
   
-  #geocoded_by :address
-  #after_validation :geocode
+  before_validation :generate_slug
+
+  def self.search(sleeps)
+    if sleeps
+      min = sleeps.to_i
+      max = sleeps.to_i + 4
+      where("sleeps >= ? AND sleeps < ?", min, max) 
+    else
+      all
+    end
+  end
   
-  validates :name, :strapline, presence: true
+  def generate_slug
+      self.slug ||= name.parameterize if name
+  end
   
-  validates :reference, numericality: {greater_than_or_equal_to: 0}
+  def to_param
+    slug
+  end
+
+  #scope :sleeps, -> (sleeps = 1) { where("sleeps >= ? AND sleeps < ?", sleeps, sleeps + 4) }
   
-  validates :description, length: {minimum: 30}
+  #scope :area, -> { where("villa.area = 2")}
+  
+  has_attached_file :image
   
   has_many :types, dependent: :destroy
   
@@ -22,5 +39,19 @@ class Villa < ActiveRecord::Base
   belongs_to :area
   
   belongs_to :owner
+  
+  validates :name, :strapline, presence: true, uniqueness: true
+  
+  validates :slug, uniqueness: true
+  
+  validates :reference, numericality: {greater_than_or_equal_to: 0}
+  
+  validates :description, length: {minimum: 30}
+  
+  validates_attachment :image,
+    :content_type => { :content_type => ['image/jpeg', 'image/png'] },
+    :size => { :less_than => 1.megabyte }
+  
+
   
 end

@@ -2,8 +2,7 @@
 
 body {
   color: $primary-text-color;
-  background-image: image-url("background.jpg");
-  font-family: "Montserrat", Helvetica, Arial;
+  font-family:  Helvetica, Arial;
 }
 
 header#page-header {
@@ -12,7 +11,7 @@ header#page-header {
 
   h1 a {
     height: 0px;
-    padding-top: 60px;
+    padding-top: 40px;
     display: block;
     font-family: "Esteban", sans-serif;
     color: #fff;

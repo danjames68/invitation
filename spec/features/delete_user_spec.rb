@@ -4,8 +4,10 @@ require 'rails_helper'
 
 describe "Deleting a user" do
 it "destroys the user and redirects to the home page" do
-    user = User.create!(user_attributes)
-
+    user = User.create!( name: "larry",   
+                email: "larry@example.com",
+                password: "secret",
+                password_confirmation: "secret")
     visit user_path(user)
 
     click_link 'Delete Account'

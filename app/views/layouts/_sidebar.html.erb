@@ -1,28 +1,14 @@
 <aside id="sidebar">
   <nav>
-    <ul>  
-      <li class="upcoming-events">
-        <%= link_to "Villas", villas_path, class: 'button' %>
-      </li>
-      <li class="upcoming-events">
-        <%= link_to "Collections", collections_path, class: 'button' %>
-      </li>
-      <li class="upcoming-events">
-        <%= link_to "Areas", areas_path, class: 'button' %>
-      </li>
-      <li class="upcoming-events">
-        <%= link_to "Owners", owners_path, class: 'button' %>
-      </li>
-      <li class="upcoming-events">
-        <%= link_to "Users", users_path, class: 'button' %>
-      </li>
-      <li class="create-event">
-        <%= link_to 'Add an Owner', new_owner_path, class: 'button' %>
-      </li>
-      <li class="create-event">
-        <%= link_to 'Add New Villa', new_villa_path, class: 'button' %>
-      </li>
-    </ul>
+    <ul> 
+	 <li>
+		 <%= form_tag villas_path, :method => 'get' do %>
+		   <p>
+		   	<%= number_field_tag :sleeps, params[:sleeps] %>
+			<%= submit_tag :search, :name => nil %>
+		   </p>
+		 <% end %>
+	 </li>
   </nav>
   <%= content_for(:side) %>
 </aside>

@@ -1,38 +1,33 @@
-
 <article id="event" class="event">
+	<h2><%= @villa.name %> - Ref.:<%= @villa.reference %></h2>
+	<p><%= image_tag(@villa.image_file_name) %></p>
+	<p>Sleeps <%= @villa.sleeps %></p>
+	<p><%= @villa.address %> ( in area name link)</p>
+	<h4><%= @villa.strapline %></h4>
+	<p><%= @villa.description %></p>
+	<p><%= @villa.accommodation %></p>
+	<p><%= @villa.around_the_villa %></p>
+	
+	<% content_for(:title) do %>
+		| <%= @villa.name %> | <%= @villa.address %> | 
+	<% end %>
 
-		<h2><%= @villa.name %> - Ref.:<%= @villa.reference %></h2>
-		<p><%= image_tag(@villa.image_file) %></p>
-		<p>Sleeps <%= @villa.sleeps %></p>
-		
-		<p><%= @villa.address %></p>
-		
-		<h4><%= @villa.strapline %></h4>
-		<p><%= @villa.description %></p>
-		
-		<% content_for(:side) do %>
-		
+	<% content_for(:side) do %>
+	<p>Sleeps: <%= @villa.sleeps %>
+	<p><%= @villa.bed_and_bathrooms %></p>
 		<p>Features:</p>
 		<ul>
 			<% @features.each do |f| %>
-		
 			<li><%= f.name %></li>
-			
 			<% end %>
-	    </ul>
-		
-		
+		</ul>
 		<p>In <%= pluralize @collections.size, 'collection' %></p>
 		<ol>
 			<% @collections.each do |c| %>
-		
 			<li><%= link_to c.name, c %></li>
-			
 			<% end %>
-	    </ol>
-		
-		<% end %>
-
+		</ol>
+	<% end %>
 </article>
 
 <%= link_to "Back to List of Villas", villas_url  %> | <%= link_to "Edit", edit_villa_path(@villa) %> | <%= link_to "Delete", villa_path(@villa), method: :delete, data: { confirm: 'Are you sure?'}  %> | <%= link_to "Contracts", contracts_path(villa_id: @villa) %> | <%= link_to 'Add a Contract', new_contract_path(@villa) %>

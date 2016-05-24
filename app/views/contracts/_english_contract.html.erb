@@ -1,0 +1,47 @@
+<h1>Contract for Owner</h1>
+
+<p>AGREEMENT BETWEEN</p>
+<article>
+<p>Invitation to Tuscany Ltd.</p><p>
+Winston House</p><p>
+London N3 1HF</p><p>
+Tel. +44 (0)208 444 9500</p><p>
+Fax +44 (0)208 371 5949</p><p>
+registered at Companies House with the n° 5399312</p><p>
+hereinafter also referred to as "the Agent" on the one part and</p><p>
+</p>
+</article>
+<p>
+
+<p>Name: <%= full_name(@owner) %></p>
+<p>Company: <%= @owner.company %>
+<p>Address: <%= @owner.address %> - </p>
+<p><%= @owner.postcode %> - <%= @owner.country %></p>
+<p>Tel.:<%= @owner.phone %></p>	
+<p>Mobile:	<%= @owner.mobile %></p>
+<p>Email: <%= @owner.email %>	</p>
+
+<p> Hereinafter referred to as "the Principal" on the other part.</p>
+
+<p>GIVEN<br />
+that the Agent promotes the rental property for use as holiday accommodation on behalf of the Principal, the Principal hereby appoints the Agent as its selling agent in the United Kingdom, Europe, Scandinavia, the United States of America, Canada, Australia and New Zealand in respect of the rental of the Principal’s holiday accommodation and the Agent agrees to act as such. The Agent undertakes to deal accurately with requests for bookings from the Principals’ customers, and to relay all monies which it receives from the Principals’ customers which were due to the Principal under the terms of this Agreement including payment for the holiday, any cancellation charges and collection of funds for the cautionary deposit. The Agent has no further duties toward the Principal in this agreement, except that he may act on behalf of the Principal to remedy equipment or property breakdowns in the case that the Principal (or his representative) is unavailable.<br />
+IT IS AGREED AND STIPULATED AS FOLLOWS:</p>
+
+<p>1)	The Principal grants permission for the Agent to promote, negotiate and conclude in his name and on his account contracts to let and use as holiday accommodation of the following property: </p>
+
+	<p>Property name: <%= @villa.name %><br />
+	<p>Maximum people allowed: <%= @villa.sleeps %><br />
+	<p>Situated in: <%= @villa.address %></p>
+	<p>for periods from 3 days to 3 months, but generally for 1 – 2 weeks and in accordance with the conditions and prices in the Paragraphs here below.</p>
+	<p>a)	The property is completely restored and furnished and does not/does require further works. (If there are works to be done they should be described and attached to the bottom of this agreement.)</p>
+
+<p>b)	Heating is included / not included (strike out the option that does not apply)
+Notes on heating (fire wood, etc.) ___________________________________
+</p>
+<p>c)	The weekly rental prices for <%= @contract.year %> are established as below, less any small bank charges.</p>
+
+<% @rates.each do |rate| %>
+	<p><strong><%= rate.name %></strong>
+				Starts: <%= make_date(rate.start_date) %> | Ends <%= make_date(rate.end_date) %> | <strong>Net Rate: <%= number_to_currency(rate.net, locale: :it) %></strong> -- giving a EUR selling price of <%= number_to_currency(rate.net/((100-@contract.commission))*100, locale: :it) %>
+<% end %>
+<p>2)	Any further alteration in price after signing of the Agreement shall be notified by the Principal to the Agent by no later than 31st December <%= @contract.year.to_i - 1 %>. Any price alteration to the Principal customer's holiday can not be made once the customer has made full payment.</p>

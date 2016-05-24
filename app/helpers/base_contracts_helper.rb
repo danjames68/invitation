@@ -1,0 +1,2 @@
+module BaseContractsHelper
+end

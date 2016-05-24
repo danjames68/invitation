@@ -2,7 +2,21 @@
   <div id="masthead">
     <h1><%= link_to "Villas", root_path %></h1>
 	<nav>
-		<p>
+		     <p class = "nav">
+		        <%= link_to "Villas", villas_path, class: 'button' %> 
+		   
+		        <%= link_to "Collections", collections_path, class: 'button' %> 
+		     
+		        <%= link_to "Areas", areas_path, class: 'button' %> 
+		      
+		        <%= link_to "Owners", owners_path, class: 'button' %> 
+		   
+		        <%= link_to "Users", users_path, class: 'button' %> 
+		     
+		        <%= link_to 'Add an Owner', new_owner_path, class: 'button' %> 
+		      
+		        <%= link_to 'Add New Villa', new_villa_path, class: 'button' %> 
+		      
 			<% if current_user %>
 			  <%= link_to current_user.name, current_user %>
 			<% else %>

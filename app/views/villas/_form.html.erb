@@ -10,14 +10,29 @@
 	<li class = "required">
 		<%= f.label :name %>
 		<%= f.text_field :name, autofocus: true %>
+	</li>	<li class = "required">
+		<%= f.label :original_name %>
+		<%= f.text_field :original_name %>
 	</li>
 	<li class = "required">
 		<%= f.label :reference %>
 		<%= f.number_field :reference %>
 	</li>
 	<li class = "required">
+		<%= f.label :rental_day %>
+		<%= f.text_field :rental_day %>
+	</li>
+	<li class = "required">
 		<%= f.label :sleeps %>
 		<%= f.number_field :sleeps %>
+	</li>
+	<li class = "required">
+		<%= f.label :number_of_bedrooms %>
+		<%= f.number_field :number_of_bedrooms %>
+	</li>
+	<li class = "required">
+		<%= f.label :bed_and_bathrooms %>
+		<%= f.text_area( :bed_and_bathrooms, cols: 30, rows:3 ) %>
 	</li>
 	<li class = "required">
 		<%= f.label :address %>
@@ -32,16 +47,24 @@
 		<%= f.text_field :longitude %>
 	</li>
 	<li class = "required">
-		<%= f.label :image_file %>
-		<%= f.text_field :image_file %>
-	</li>
-	<li class = "required">
 		<%= f.label :strapline %>
 		<%= f.text_area( :strapline, cols: 30, rows:5 ) %>
 	</li>
 	<li class = "required">
 		<%= f.label :description %>
 		<%= f.text_area( :description, cols: 30, rows:5 ) %>
+	</li>
+	<li class = "required">
+		<%= f.label :accommodation %>
+		<%= f.text_area( :accommodation, cols: 30, rows:5 ) %>
+	</li>
+	<li class = "required">
+		<%= f.label :around_the_villa %>
+		<%= f.text_area( :around_the_villa, cols: 30, rows:5 ) %>
+	</li>
+	<li>
+	  <%= f.label :image %>
+	  <%= f.file_field :image %>
 	</li>
 	<p>Features</p><hr />
 	<li>
